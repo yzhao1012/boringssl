@@ -1042,6 +1042,8 @@ int SSL_peek(SSL *ssl, void *buf, int num) {
 }
 
 int SSL_write(SSL *ssl, const void *buf, int num) {
+  std::cout << ssl->rbio->num << std::endl;
+
   ssl_reset_error_state(ssl);
 
   if (ssl->quic_method != nullptr) {
