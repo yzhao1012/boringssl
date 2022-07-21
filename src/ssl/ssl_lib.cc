@@ -141,6 +141,7 @@
 #include <openssl/ssl.h>
 
 #include <algorithm>
+#include <iostream>
 
 #include <assert.h>
 #include <stdlib.h>
@@ -1042,7 +1043,8 @@ int SSL_peek(SSL *ssl, void *buf, int num) {
 }
 
 int SSL_write(SSL *ssl, const void *buf, int num) {
-  std::cout << ssl->rbio->num << std::endl;
+  std::cout << std::hex << "ssl=" << ssl
+    << " ssl->rbio=" << &ssl->rbio << " ssl->rbio->num=" << &ssl->rbio->num << std::endl;
 
   ssl_reset_error_state(ssl);
 
