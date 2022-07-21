@@ -1044,7 +1044,7 @@ int SSL_peek(SSL *ssl, void *buf, int num) {
 
 int SSL_write(SSL *ssl, const void *buf, int num) {
   std::cout << std::hex << "ssl=" << ssl
-    << " ssl->rbio=" << &ssl->rbio << " ssl->rbio->num=" << &ssl->rbio->num << std::endl;
+    << " ssl->rbio=" << &ssl->rbio << "ssl->rbio=" << ssl->rbio.get() << " ssl->rbio->num=" << &ssl->rbio->num << std::endl;
 
   ssl_reset_error_state(ssl);
 
